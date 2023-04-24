@@ -9,7 +9,7 @@ const SearchList = (props:{query:dbNotes}) => {
             <div className={"lg:ml-[15px] mr-[14px] m-0 col-span-12 md:col-start-5 md:col-end-11 md:ml-3 md:mr-1 rounded-sm border border-[#FF7F50] lg:col-start-4 lg:col-end-12 flex flex-wrap bg-white lg:mr-2"}>
             {query?.map(note => {
                 return (
-                    <Link className={"basis-full py-2 px-2 hover:bg-[#FF7F50] transition-colors duration-200 hover:text-white border-emeral-500 "} href={`/notes/note/${note._id}`}>
+                    <Link key={note._id.toString()} className={"basis-full py-2 px-2 hover:bg-[#FF7F50] transition-colors duration-200 hover:text-white border-emeral-500 "} href={`/notes/note/${note._id}`}>
                         {note.name ? <p>{note.name}</p> :
                         <p>{note.content}</p>}
                     </Link>

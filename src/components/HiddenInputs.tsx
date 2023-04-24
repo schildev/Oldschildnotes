@@ -56,7 +56,7 @@ const HiddenInputs = ({arr, updateNoteToCreate, name, attrName}:any) => {
         <div className={"border border-t-0 w-full grid py-1 gap-1 border-emerald-300 m-0 rounded-sm"}>
             {arr.map((def:string) => {
                     return (
-                    <div className={"m-0 px-2 flex justify-between"}>
+                    <div key={"name "+def} className={"m-0 px-2 flex justify-between"}>
                         <p className={"flex items-center"} key={def}>{def}</p>
                         <span className={"text-xl material-symbols-outlined hover:text-emerald-400 pr-0 cursor-pointer"} onClick={(e) => deleteHidden(e, def)}>delete_sweep</span>
                     </div>)
