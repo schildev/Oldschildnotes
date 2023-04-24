@@ -19,9 +19,9 @@ export default async function Home() {
   const notesDB = await getNotes();
   return (
     <main>
-      <Suspense fallback={<Loading/>}>
+      {notesDB.length > 0 && <Suspense fallback={<Loading/>}>
         <NotesList notes={notesDB} />
-      </Suspense>
+      </Suspense>}
     </main>
   )
 }
