@@ -4,7 +4,7 @@ import { HydratedDocument } from "mongoose";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 async function getNotes(){
-    const res = await fetch("http://localhost:3000/api/notes", {
+    const res = await fetch(process.env.URL + "/api/notes", {
         method:"GET",
         headers:new Headers({
             'Content-Type': 'application/json'

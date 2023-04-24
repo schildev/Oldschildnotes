@@ -10,7 +10,7 @@ const RubikFont = Rubik({
     weight:"400", subsets:["latin-ext"]
 })
 const getNote = async (_id:string) => {
-    const note: HydratedDocument<INote> = await (await fetch(`http://localhost:3000/api/notes/note/${_id}`, {
+    const note: HydratedDocument<INote> = await (await fetch(process.env.URL + `/api/notes/note/${_id}`, {
         method:"GET", headers:new Headers({"Content-Type":"application/json"}), cache:"no-store"
     })).json()
     return note
