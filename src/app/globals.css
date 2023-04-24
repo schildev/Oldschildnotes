@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+  }
+
+  .material-symbols-outlined:hover{
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+
+  }
+  span.material-symbols-outlined{
+    font-size:30px;
+  }
+  span.fillsymbol{
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+
+div{
+  @apply lg:mx-2 mx-0
+}
+a:hover{
+  @apply font-bold transition-all ease-out duration-200
+}
+
+@layer base{
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+    padding-top: 0.45rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.45rem;
+    padding-left: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  [type="checkbox"],
+  [type="radio"] {
+    @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
+  }
+}
+.glass{
+  padding:7px 30px;
+  padding-bottom: 6.5px;
+  margin:0;
+}
+.search-form:hover > .glass, .search-form input:focus +  .glass{
+  background-color: #FF7F50;
+}
+header>div>h2{
+  color: #F5DEB3;
+}
+
+.search-form:hover > .glass > img, .search-form input:focus + .glass > img{
+  filter:invert(1)!important
+}
+
+.field{
+  @apply flex flex-wrap
+}
+.field > label, input{
+  @apply basis-full transition-colors duration-150
+}
+
+.success{
+  @apply text-emerald-300 border-emerald-200 border p-2 mb-1 flex justify-between hover:bg-emerald-300 hover:text-white cursor-pointer transition-colors duration-200
+}
+.error{
+  @apply text-red-400 border-red-300 border p-2 mb-1 flex justify-between hover:bg-red-400 hover:text-white cursor-pointer duration-200
+}
+
+.error:hover span{
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
