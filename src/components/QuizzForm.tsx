@@ -6,7 +6,7 @@ import { KeyboardEvent } from "react";
 import Recap from "./Recap";
 type answ = string[]
 type ref = (0|1)[]
-const QuizzForm = (props:{definitions:string[], questions:[]}) => {
+const QuizzForm = (props:{definitions:string[], questions:string[]}) => {
     const {questions, definitions} = props;
     const [answerState, updateAnswerState] = useImmer<answ>([])
     const [answerText, setAnswerText] = useState("");

@@ -4,7 +4,8 @@ export interface INote {
     name?:string,
     content:string,
     definitions:string[],
-    questions:string[]
+    questions:string[],
+    password?:string
 }
 
 const noteSchema = new Schema<INote>({
@@ -24,6 +25,10 @@ const noteSchema = new Schema<INote>({
     },
     questions:{
         type: [String],
+        required:false
+    },
+    password:{
+        type:String,
         required:false
     }
 })
