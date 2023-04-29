@@ -54,7 +54,7 @@ const Recap = (props : {userAnswers:string[], answers:string[], refState:(0|1)[]
     }
     return (
     <div className={"m-0 flex justify-between w-full flex-wrap"}>
-        <div className={"basis-full lg:basis-10/12 m-0"}>
+        <div className={"basis-full m-0"}>
             {userAnswers.map((answ, index) => (
                 <Fragment key={answ + ` ${index}`}>
                     <p onClick={(e) => {handleClick(e, index)}} className={`${simis[index] > 0.8 ? "success" : "error"} text-sm md:text-base lg:text-base flex items-center justify-center`}>{refState.length > index ? answers[index].split(":")[refState[index]]:answers[index].split(":")[0]} : {answ} 
