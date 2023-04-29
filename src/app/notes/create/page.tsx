@@ -79,7 +79,7 @@ const Create = () => {
                 <HiddenInputs attrName="questions" arr={NoteToCreate.questions}
                 updateNoteToCreate={updateNoteToCreate} name={"Questions Personnalisés"} />
                 <div className="field">
-                    <label>Mot de passe (il n'est pas requis)</label>
+                    <label>Mot de passe (il n&apos;est pas requis)</label>
                     <input className={"rounded-sm border outline-none border-emerald-300"} type="password" onChange={(e) => handleInputEvent(e, "password")} value={NoteToCreate.password} />
                 </div>
                 <div>
