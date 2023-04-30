@@ -40,7 +40,7 @@ const SearchForm = () => {
             onClick={e => setQueryVisible(true)}
             onChange={handleInput} />
             <button 
-            className={"absolute cursor-pointer transition-colors duration-200 glass rounded-e-md justify-self-end self-center"}>
+            className={"absolute cursor-pointer transition-colors duration-200 glass rounded-e-sm justify-self-end self-center"}>
                 <Image quality={100} width={25} height={25} 
                 className={""} 
             src={"/search.svg"} alt={"search icon"} />
