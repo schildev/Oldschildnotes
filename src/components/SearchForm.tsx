@@ -36,7 +36,7 @@ const SearchForm = () => {
         <>
         <form onSubmit={handleSubmit} className={"search-form order-2 z-10 md:order-1 basis-full md:basis-6/12 lg:basis-8/12 grid"}>
             <input placeholder={"Cherchez une note"}
-            className={"text-black rounded-md w-full ring-2 transition-all duration-300 hover:ring-blue-300 focus:ring-blue-400 outline-none"} type="text" value={query}
+            className={"text-black rounded-sm w-full ring-2 transition-all duration-300 hover:ring-blue-300 focus:ring-blue-400 outline-none"} type="text" value={query}
             onClick={e => setQueryVisible(true)}
             onChange={handleInput} />
             <button 
