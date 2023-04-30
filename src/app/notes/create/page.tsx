@@ -75,8 +75,8 @@ const Create = () => {
                     <label >Contenu de la note</label>
                     <textarea value={NoteToCreate.content} onChange={(e) => handleInputEvent(e, "content")} className={" rounded-sm border outline-none border-emerald-300"} rows={4} />
                 </div>
-                <HiddenInputs attrName="definitions" arr={NoteToCreate.definitions} updateNoteToCreate={updateNoteToCreate} name={"Définitions | Dates"} />
-                <HiddenInputs attrName="questions" arr={NoteToCreate.questions}
+                <HiddenInputs color={"green"} attrName="definitions" arr={NoteToCreate.definitions} updateNoteToCreate={updateNoteToCreate} name={"Définitions | Dates"} />
+                <HiddenInputs color={"green"} attrName="questions" arr={NoteToCreate.questions}
                 updateNoteToCreate={updateNoteToCreate} name={"Questions Personnalisés"} />
                 <div className="field">
                     <label>Mot de passe (il n&apos;est pas requis)</label>

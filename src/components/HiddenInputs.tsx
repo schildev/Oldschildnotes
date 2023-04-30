@@ -48,12 +48,12 @@ const HiddenInputs = ({arr, updateNoteToCreate, name, attrName, color}:any) => {
     return (
     <>
     <div className="field gap-0">
-        <h3 className={`border px-2 py-1 border-r-0 ${color === null ? "border-emerald-300" : "border-blue-400"} rounded-sm basis-11/12 text-xl`}>{name}</h3>
-        <div onClick={e => updateDefText(draft =>{draft.isVisible = !draft.isVisible})} className={`border flex ${color === null ? "border-emerald-300 hover:bg-emerald-300" : "border-blue-400 hover:bg-blue-400"} hover:text-white p-0 m-0 justify-center items-center hover:cursor-pointer rounded-sm basis-1/12`}>
+        <h3 className={`border px-2 py-1 border-r-0 ${color === "green" ? "border-emerald-300" : "border-blue-400"} rounded-sm basis-11/12 text-xl`}>{name}</h3>
+        <div onClick={e => updateDefText(draft =>{draft.isVisible = !draft.isVisible})} className={`border flex ${color === "green" ? "border-emerald-300 hover:bg-emerald-300" : "border-blue-400 hover:bg-blue-400"} hover:text-white p-0 m-0 justify-center items-center hover:cursor-pointer rounded-sm basis-1/12`}>
             <a>{defText.isVisible ? "-" : "+"}</a>
         </div>
         {arr.length != 0 &&
-        <div className={`border border-t-0 w-full grid py-1 gap-1 ${color === null ? "border-emerald-300" : "border-blue-400"} m-0 rounded-sm`}>
+        <div className={`border border-t-0 w-full grid py-1 gap-1 ${color === "green" ? "border-emerald-300" : "border-blue-400"} m-0 rounded-sm`}>
             {arr.map((def:string) => {
                     return (
                     <div key={"name "+def} className={"m-0 px-2 flex justify-between"}>
@@ -65,8 +65,8 @@ const HiddenInputs = ({arr, updateNoteToCreate, name, attrName, color}:any) => {
         }
     </div>
     <div className={`grid grid-cols-12 gap-1 ${!defText.isVisible ? "hidden" : ""}`}>
-        <input className={`rounded-sm col-span-3 border outline-none ${color === null ? "border-emerald-300" : "border-blue-400"}`} value={defText.defName} onChange={(e) => {handleInputEvent(e, 0)}} onKeyDown={e => addDef(e, "add")} type="text" placeholder={`ajouter une ${name}`} />
-        <input className={`rounded-sm border col-span-9 outline-none ${color === null ? "border-emerald-300" : "border-blue-400"}`} value={defText.defValue} onChange={(e) => {handleInputEvent(e, 1)}} onKeyDown={e => addDef(e, "add")} type="text" placeholder="" />
+        <input className={`rounded-sm col-span-3 border outline-none ${color === "green" ? "border-emerald-300" : "border-blue-400"}`} value={defText.defName} onChange={(e) => {handleInputEvent(e, 0)}} onKeyDown={e => addDef(e, "add")} type="text" placeholder={`ajouter une ${name}`} />
+        <input className={`rounded-sm border col-span-9 outline-none ${color === "green" ? "border-emerald-300" : "border-blue-400"}`} value={defText.defValue} onChange={(e) => {handleInputEvent(e, 1)}} onKeyDown={e => addDef(e, "add")} type="text" placeholder="" />
     </div>
     </>);
 }

@@ -5,6 +5,7 @@ import { useImmer } from "use-immer";
 import { HydratedDocument } from "mongoose";
 import HiddenInputs from "./HiddenInputs";
 import { useRouter } from "next/navigation";
+import DeleteWrapper from "./DeleteWrapper";
 const EditNote = (props:{note:HydratedDocument<INote>}) => {
     const {note} = props;
     const  [password, setPassword] = useState("");
@@ -12,6 +13,7 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
     const [isPasswordConfirmed, setIsPasswordConfirmed] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [NoteToUpdate, updateNoteToCreate] = useImmer<INote>(note);
+    const [isDelete, updateIsDelete] = useImmer({isDeletingProcess:false, deleteCode:""});
     const router = useRouter();
     const handleInputEvent = (e:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>, attrName:("name"|"content"|"password")) => {
         updateNoteToCreate(draft => {
@@ -51,6 +53,7 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
             setError(response["error"]);
         }
     }
+    
     return (
         <>
         {!isPasswordConfirmed ? (<>
@@ -60,9 +63,9 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
                         <label>Mot de passe</label>
                         <div className={"flex w-full m-0"}>
                             <input type="password" value={password} onChange={e => setPassword(e.target.value)} 
-                            className={`rounded-sm border border-r-0 basis-11/12 outline-none ${!error ? "border-emerald-300" : "border-red-500"}`} />
-                            <button className={"flex items-center hover:bg-indigo-500 transition-colors hover:text-white justify-center basis-1/12 border border-indigo-500"} type="submit">
-                                <span className="material-symbols-outlined">
+                            className={`rounded-sm border border-r-0 basis-10/12 md:basis-11/12 lg:basis-11/12 outline-none ${!error ? "border-indigo-500" : "border-red-500"}`} />
+                            <button className={"flex items-center hover:bg-indigo-500 transition-colors hover:text-white justify-center basis-2/12 md:basis-1/12 lg:basis-1/12 border border-indigo-500"} type="submit">
+                                <span className="material-symbols-outlined" style={{fontSize:"26px"}}>
                                     lock_open
                                 </span>
                             </button>
@@ -73,7 +76,13 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
             </>
         ) :
         (
+            <>
             <form onSubmit={handleUpdateNote} className="flex flex-col p-0 mt-3 pb-4 gap-4">
+                <div className={"basis-full relative md:left-0 lg:left-0 bottom-12 md:bottom-0 lg:bottom-0 right-[74px] justify-end flex"}>
+                    <span className={"absolute material-symbols-outlined w-8 h-8 cursor-pointer text-red-500"} onClick={e => {
+                        updateIsDelete(draft => {draft.isDeletingProcess=true})
+                    }}>delete_forever</span>    
+                </div>
                 <div className={"field"}>
                     <label >Titre de la note</label>
                     <input value={NoteToUpdate.name} onChange={(e) => handleInputEvent(e, "name")}
@@ -96,6 +105,10 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
                     </button>
                 </div>
             </form>
+            {isDelete.isDeletingProcess ? (
+                <DeleteWrapper password={password} updateIsDelete={updateIsDelete} isDelete={isDelete} note={note} />
+            ) : ""}
+            </>
         )
         }
         </>)
