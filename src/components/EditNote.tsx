@@ -78,7 +78,7 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
         (
             <>
             <form onSubmit={handleUpdateNote} className="flex flex-col p-0 mt-3 pb-4 gap-4">
-                <div className={"basis-full relative md:left-0 lg:left-0 bottom-12 md:bottom-0 lg:bottom-0 right-[74px] justify-end flex"}>
+                <div className={"basis-full relative md:left-0 lg:left-0 bottom-12 md:bottom-0 lg:bottom-0 right-[74px] lg:right-[78px] justify-end flex"}>
                     <span className={"absolute material-symbols-outlined w-8 h-8 cursor-pointer text-red-500"} onClick={e => {
                         updateIsDelete(draft => {draft.isDeletingProcess=true})
                     }}>delete_forever</span>    
