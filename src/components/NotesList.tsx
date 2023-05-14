@@ -14,7 +14,7 @@ const NotesList = (props:{notes:HydratedDocument<INote>[]}) => {
         <div className={"grid gap-3 grid-cols-1 hover:font-normal sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-1 my-2"}>
             {props.notes.map(note => {
                 return (
-            <Link href={`/notes/note/${note._id}`} className={"hover:font-normal"} key={note._id.toString()}>
+            <Link href={`/notes/note/${note._id}`} className={"hover:font-normal max-h-[300px] overflow-hidden"} key={note._id.toString()}>
                 <div className={"note p-3 border m-0 rounded-sm min-h-[25dvh] h-full shadow-md bg-sky-50 border-slate-300 hover:bg-sky-100"}>
                     <h4 className={"text-2xl text-emerald-300 capitalize " + MuktaFont.className}>{note?.name}</h4>
                     <p className={RubikFont.className + " text-sm"}>{note.content}</p>
