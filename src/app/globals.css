@@ -110,3 +110,24 @@ button:hover > span.material-symbols-outlined{
     'GRAD' 0,
     'opsz' 48
 }
+.noteContent h1 {
+  @apply text-5xl text-red-500
+}
+.noteContent h2 {
+  @apply text-4xl text-red-500
+}
+.noteContent h3{
+  @apply text-3xl text-red-500
+}
+.noteContent h4{
+  @apply text-2xl text-red-500
+}
+.noteContent h5{
+  @apply text-xl text-red-500
+}
+.noteContent h6{
+  @apply text-lg text-red-500
+}
+.noteContent p{
+  @apply mb-3
+}

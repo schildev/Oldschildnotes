@@ -1,6 +1,9 @@
 import { HydratedDocument } from "mongoose";
 import { INote } from "../../../../../db/models/note";
-
+import {remark} from "remark"
+import remarkRehype from "remark-rehype"
+import rehypestringify from "rehype-stringify"
+import sanatize from "rehype-sanitize";
 import { Mukta, Rubik } from "next/font/google";
 import NoteContent from "@/components/NoteContent";
 const MuktaFont = Mukta({
@@ -15,13 +18,23 @@ const getNote = async (_id:string) => {
     })).json()
     return note
 }
+const getHtml = async (content:string) => {
+    const html = await remark()
+        .use(remarkRehype)
+        .use(sanatize)
+        .use(rehypestringify)
+        .process(content)
+    return html.toString();
+}
 
 const Note = async ({params}:any) => {
     const {id} = params;
     const noteToShow = await getNote(id);
+    const markdownToHtml = await getHtml(noteToShow.content);
+
     return (
         <div className={"flex items-center min-h-[75dvh]"}>
-            <NoteContent noteToShow={noteToShow} MuktaFont={MuktaFont} RubikFont={RubikFont} />
+            <NoteContent html={markdownToHtml} noteToShow={noteToShow} MuktaFont={MuktaFont} RubikFont={RubikFont} />
         </div>
     );
 }

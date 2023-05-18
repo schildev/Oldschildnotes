@@ -6,10 +6,11 @@ import EditNote from "./EditNote";
 import { HydratedDocument, ObjectId } from "mongoose";
 import { INote } from "../../db/models/note";
 
-const NoteContent = (props:{noteToShow:HydratedDocument<INote>, RubikFont:any, MuktaFont:any}) => {
+const NoteContent = (props:{noteToShow:HydratedDocument<INote>, RubikFont:any, MuktaFont:any, html:string}) => {
     const [isQuizz, setIsQuizz] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
-    const {noteToShow, RubikFont, MuktaFont} = props;
+    const {noteToShow, RubikFont, MuktaFont, html} = props;
+    
     return (
     <>
         <div className={"basis-full md:basis-9/12 lg:basis-9/12 m-0 w-full"}>
@@ -29,7 +30,7 @@ const NoteContent = (props:{noteToShow:HydratedDocument<INote>, RubikFont:any, M
             {!isEdit &&
             <div className={" p-3 border rounded-md border-blue-500 " + MuktaFont.className}>
                 <h3 className={"text-indigo-600 text-2xl " + RubikFont.className}>Contenu de la note</h3>
-                <p style={{whiteSpace: "pre-wrap"}}>{noteToShow.content}</p>
+                <p className={"noteContent"} dangerouslySetInnerHTML={{ __html: html }}></p>
                 {noteToShow.definitions.length > 0 && 
                 (<>
                 <h3 className={"text-red-400 text-2xl border-t pt-2 mt-1 border-indigo-400 " + RubikFont.className}>Définitions | Dates</h3>

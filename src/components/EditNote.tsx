@@ -90,7 +90,7 @@ const EditNote = (props:{note:HydratedDocument<INote>}) => {
                 </div>
                 <div className="field">
                     <label >Contenu de la note</label>
-                    <textarea value={NoteToUpdate.content} onChange={(e) => handleInputEvent(e, "content")} className={" rounded-sm border outline-none border-blue-400"} rows={4} />
+                    <textarea  value={NoteToUpdate.content} onChange={(e) => handleInputEvent(e, "content")} className={" rounded-sm border outline-none border-blue-400"} rows={16} />
                 </div>
                 <HiddenInputs color={"blue"} attrName="definitions" arr={NoteToUpdate.definitions} updateNoteToCreate={updateNoteToCreate} name={"Définitions | Dates"} />
                 <HiddenInputs color={"blue"} attrName="questions" arr={NoteToUpdate.questions}
