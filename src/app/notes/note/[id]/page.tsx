@@ -34,7 +34,7 @@ const Note = async ({params}:any) => {
 
     return (
         <div className={"flex items-center min-h-[75dvh]"}>
-            <NoteContent html={markdownToHtml} noteToShow={noteToShow} MuktaFont={MuktaFont} RubikFont={RubikFont} />
+            <NoteContent html={markdownToHtml} noteToShow={noteToShow} MuktaFont={MuktaFont} HeadingRubikFont={RubikFont} />
         </div>
     );
 }
