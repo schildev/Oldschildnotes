@@ -3,10 +3,10 @@ import { HydratedDocument } from "mongoose";
 import { Mukta, Rubik } from "next/font/google";
 import Link from "next/link";
 
-const MuktaFont = Mukta({
+const MuktaFontForNotesList = Mukta({
     weight:"400", subsets:["latin-ext"]
 })
-const RubikFont = Rubik({
+const RubikFontForNotesList = Rubik({
     weight:"400", subsets:["latin-ext"]
 })
 const NotesList = (props:{notes:HydratedDocument<INote>[]}) => {
@@ -16,12 +16,12 @@ const NotesList = (props:{notes:HydratedDocument<INote>[]}) => {
                 return (
             <Link href={`/notes/note/${note._id}`} className={"hover:font-normal max-h-[300px] overflow-hidden"} key={note._id.toString()}>
                 <div className={"note p-3 border m-0 rounded-sm min-h-[25dvh] h-full shadow-md bg-sky-50 border-slate-300 hover:bg-sky-100"}>
-                    <h4 className={"text-2xl text-emerald-300 capitalize " + MuktaFont.className}>{note?.name}</h4>
-                    <p className={RubikFont.className + " text-sm"} style={{whiteSpace: "pre-wrap"}}>{note.content}</p>
+                    <h4 className={"text-2xl text-emerald-300 capitalize " + MuktaFontForNotesList.className}>{note?.name}</h4>
+                    <p className={RubikFontForNotesList.className + " text-sm"} style={{whiteSpace: "pre-wrap"}}>{note.content}</p>
                     {note.definitions.length > 0 && (
                     <>
-                    <h5 className={"text-lg text-red-400 " + RubikFont.className}>Définitions</h5>
-                    <ol className={RubikFont.className}>
+                    <h5 className={"text-lg text-red-400 " + RubikFontForNotesList.className}>Définitions</h5>
+                    <ol className={RubikFontForNotesList.className}>
                         {note.definitions.map(def => {
                             return <li className={"hover:font-normal"} key={def}>{def}</li>
                         })}
