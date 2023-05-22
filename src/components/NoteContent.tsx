@@ -30,7 +30,7 @@ const NoteContent = (props:{noteToShow:HydratedDocument<INote>, HeadingRubikFont
             {!isEdit &&
             <div className={" p-3 border rounded-md border-blue-500 " + MuktaFont.className}>
                 <h3 className={"text-indigo-600 text-2xl " + HeadingRubikFont.className}>Contenu de la note</h3>
-                <p className={"noteContent"} style={{marginInlineStart:"35px", listStyleType:"circle"}} dangerouslySetInnerHTML={{ __html: html }}></p>
+                <p className={"noteContent"} dangerouslySetInnerHTML={{ __html: html }}></p>
                 {noteToShow.definitions.length > 0 && 
                 (<>
                 <h3 className={"text-red-400 text-2xl border-t pt-2 mt-1 border-indigo-400 " + HeadingRubikFont.className}>Définitions | Dates</h3>
