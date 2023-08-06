@@ -18,7 +18,9 @@ export async function POST(request:NextRequest){
     if(password === ""){
       pass = null;
     }
-    pass = await hash(pass);
+    if(pass != null){
+      pass = await hash(pass);
+    }
     if(name !== "" || content !== "" || (definitions as string[]).length > 0){
       await connectDB();
       const newNote : HydratedDocument<INote> = new Note(<INote>{
