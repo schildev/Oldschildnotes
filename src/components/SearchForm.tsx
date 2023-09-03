@@ -23,6 +23,9 @@ const SearchForm = () => {
     }
     const handleSubmit = async (e:React.FormEvent) => {
         e.preventDefault();
+        if(query === ""){
+            return null;
+        }
         const querySearchResults = await (await fetch(`/api/notes/search?query=${query}`, {
             method:"GET", 
             headers:new Headers({
